@@ -2,6 +2,7 @@
 #include <stdlib.h> //alocação de espaço em memória 
 #include <locale.h> //alocações de texto por região
 #include <string.h> // deixa criar strings
+#include <time.h>
 ////#include <dirent.h> // abre os arquivos
 
 /*int File_set()
@@ -183,10 +184,6 @@ int deletar()
 int main()
 {
     int opc = 0;
-    int lac = 1;
-
-    for(lac=1;lac=1;)
-    {
 
         setlocale (LC_ALL, "Portuguese");
         system("cls"); 
@@ -194,6 +191,7 @@ int main()
         printf("\t1 - Registrar nomes\n");
         printf("\t2 - Consultar nomes\n");
         printf("\t3 - Deletar nomes\n");
+        printf("\t4 - Sair do sistema\n");
         printf(":");
 
         scanf("%d", &opc); //Salva o que foi escrito em 'opc'
@@ -212,10 +210,14 @@ int main()
             deletar();        
             break;
 
+            case 4:
+            printf("Obrigado por usar o sistema!");
+            return 0;
+            break;
+
             default:
                 printf("Escolha inexistente");
-                system("exit");
+                system("exit"); 
             break;
         }
-    }
 }
