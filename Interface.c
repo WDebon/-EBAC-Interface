@@ -92,7 +92,7 @@ int registro()
 
     }
     printf("\n");
-    system("exit");
+    cartorio(); 
 }
 
 int consulta()
@@ -144,7 +144,7 @@ int consulta()
         printf("____________");
     }
     printf("\n");
-    system("exit");
+    cartorio(); 
 }
 
 int deletar()
@@ -177,47 +177,60 @@ int deletar()
     }
     
     printf("\n");
-    system("exit");
+    cartorio(); 
 
+}
+
+int cartorio()
+{
+    int opc = 0;
+    system("cls"); 
+    printf("\n### Cartório da EBAC ###\n\nEscolha a opçãoo desejada do menu:\n\n");
+    printf("\t1 - Registrar nomes\n\t2 - Consultar nomes\n\t3 - Deletar nomes\n\t4 - Sair do sistema\n:");
+    scanf("%d", &opc); //Salva o que foi escrito em 'opc'
+
+    switch (opc)
+    {
+        case 1:
+        registro();     
+        break;
+        
+        case 2:
+        consulta();
+        break;
+
+        case 3:
+        deletar();        
+        break;
+
+        case 4:
+        printf("\nVolte sempre!");
+        return 0;
+        break;
+
+        default:
+            printf("Escolha inexistente");
+            cartorio(); 
+        break;
+    }    
 }
 
 int main()
 {
-    int opc = 0;
+    char password[10] = "B";
+    setlocale (LC_ALL, "Portuguese");
+    //---------------------//
 
-        setlocale (LC_ALL, "Portuguese");
-        system("cls"); 
-        printf("\n### Cartório da EBAC ###\n\n"); printf("Escolha a opçãoo desejada do menu: \n\n");
-        printf("\t1 - Registrar nomes\n");
-        printf("\t2 - Consultar nomes\n");
-        printf("\t3 - Deletar nomes\n");
-        printf("\t4 - Sair do sistema\n");
-        printf(":");
-
-        scanf("%d", &opc); //Salva o que foi escrito em 'opc'
-
-        switch (opc)
-        {
-            case 1:
-            registro();     
-            break;
-            
-            case 2:
-            consulta();
-            break;
-
-            case 3:
-            deletar();        
-            break;
-
-            case 4:
-            printf("Obrigado por usar o sistema!");
-            return 0;
-            break;
-
-            default:
-                printf("Escolha inexistente");
-                system("exit"); 
-            break;
-        }
+    printf("\n### Cartório da EBAC ###\n\nLogin do admin\n-----------\nSenha:"); 
+    scanf("%s", password);
+    
+    if(strcmp(password, "2435") == 0)
+    {cartorio();}
+    
+    else
+    {
+        printf("\n##!!!!!!!!!!##\nSenha incorreta\n##!!!!!!!!!!##\n");
+        main(); 
+    }
+    
 }
